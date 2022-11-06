@@ -5,18 +5,20 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { DefaultModule } from './layouts/default/default.module';
 import { FullpageModule } from './layouts/fullpage/fullpage.module';
-import { LoginComponent } from './modules/login/login.component';
+import { FullpageAdminComponent } from './layouts/fullpageadmin/fullpageadmin.component';
+import { FullpageAdminModule } from './layouts/fullpageadmin/fullpageadmin.module';
+
 
 @NgModule({
   declarations: [
     AppComponent,
-
-  ],
+          ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     DefaultModule,
-    FullpageModule
+    FullpageModule,
+    FullpageAdminModule
   ],
   providers: [],
   bootstrap: [AppComponent]

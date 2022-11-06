@@ -3,6 +3,8 @@ import { RouterModule, Routes } from '@angular/router';
 import { combineLatest } from 'rxjs';
 import { DefaultComponent } from './layouts/default/default.component';
 import { FullpageComponent } from './layouts/fullpage/fullpage.component';
+import { FullpageAdminComponent } from './layouts/fullpageadmin/fullpageadmin.component';
+import { AdminComponent } from './modules/admin/admin.component';
 import { HomeComponent } from './modules/home/home.component';
 import { LoginComponent } from './modules/login/login.component';
 import { ProductComponent } from './modules/product/product.component';
@@ -17,6 +19,12 @@ const routes: Routes = [
  {
     path:'', component: FullpageComponent, children: [
       {path: 'login', component: LoginComponent}
+     
+    ]
+  },
+  {
+    path:'', component: FullpageAdminComponent, children: [
+      {path: 'admin', component: AdminComponent}
      
     ]
   }
