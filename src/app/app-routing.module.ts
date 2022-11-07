@@ -1,6 +1,5 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { combineLatest } from 'rxjs';
 import { DefaultComponent } from './layouts/default/default.component';
 import { FullpageComponent } from './layouts/fullpage/fullpage.component';
 import { FullpageAdminComponent } from './layouts/fullpageadmin/fullpageadmin.component';

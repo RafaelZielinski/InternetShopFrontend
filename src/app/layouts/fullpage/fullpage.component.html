@@ -1,10 +1,10 @@
 
 <app-header flexLayout="column"></app-header>
-<div flexLayout="column">
+<div flexLayout="column" fxFlex>
     
-    <div fxFlex="80" class="content">
+    <div fxFlex="80" class="content" fxFlex >
         <router-outlet></router-outlet>
     </div>
 </div>
 
-<app-footer></app-footer>
+<app-footer flexLayout="row"></app-footer>
