@@ -2,16 +2,22 @@
     display: flex;
     flex-direction: column;
     height: 100%;
+    
 }
 .content{
     padding: 20px;
+    background-color: #f9f9f9;
 }
 header{
-    background: #ddd;
+    background-color: #292b31;;
     padding: 20px;
 }
 
 .sidebar{
-    background: #bbb;
+    background-color: #292b31;;
     padding: 20px;
+    a{
+        color: #fff;
+        }
+        
 }
