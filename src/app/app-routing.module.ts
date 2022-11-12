@@ -4,6 +4,7 @@ import { DefaultComponent } from './layouts/default/default.component';
 import { FullpageComponent } from './layouts/fullpage/fullpage.component';
 import { FullpageAdminComponent } from './layouts/fullpageadmin/fullpageadmin.component';
 import { AdminComponent } from './modules/admin/admin.component';
+import { AdminproductComponent } from './modules/admin/adminproduct/adminproduct.component';
 import { HomeComponent } from './modules/home/home.component';
 import { LoginComponent } from './modules/login/login.component';
 import { ProductComponent } from './modules/product/product.component';
@@ -23,7 +24,8 @@ const routes: Routes = [
   },
   {
     path:'', component: FullpageAdminComponent, children: [
-      {path: 'admin', component: AdminComponent}
+      {path: 'admin', component: AdminComponent},
+      {path: 'admin/products', component: AdminproductComponent}
      
     ]
   }
