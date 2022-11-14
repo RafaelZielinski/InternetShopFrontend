@@ -21,7 +21,7 @@
 <br>
 
 <mat-paginator *ngIf="page && page.totalElements > 0"
-   [length]="page?.totalElements"
+   [length]="page!.totalElements"
               [pageSize]="10"
               [pageSizeOptions]="[5, 10, 25, 100]"
               aria-label="Select page"

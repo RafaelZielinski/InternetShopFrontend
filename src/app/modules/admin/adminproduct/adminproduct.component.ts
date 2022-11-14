@@ -7,14 +7,14 @@ import { AdminProduct } from './adminProduct';
 
 @Component({
   selector: 'app-adminproduct',
-  templateUrl: './adminproduct.component.html',
+  templateUrl: './admin-product.component.html',
   styleUrls: ['./adminproduct.component.scss']
 })
 export class AdminproductComponent implements AfterViewInit {
 
   //dataSource: AdminProduct[] = [];
   @ViewChild(MatPaginator) paginator!: MatPaginator;
-  displayedColumns: string[] = ["id", "name", "price"];
+  displayedColumns: string[] = ["id", "name", "price", "actions"];
   totalElements: number = 0;
   dataSource: AdminProduct[] = [];
 
