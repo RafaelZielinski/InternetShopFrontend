@@ -2,6 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { AdminProductUpdate } from './model/adminProductUpdate';
+import { UploadResponse } from './model/uploadResponse';
 
 @Injectable({
   providedIn: 'root'
@@ -17,5 +18,9 @@ export class AdminProductUpdateService {
 
   saveProduct(id: number, user:AdminProductUpdate) {
       return this.http.put<AdminProductUpdate>('/api/admin/products/' + id, user);
+  }
+
+  uploadImage(formData: FormData): Observable<UploadResponse> {
+    return this.http.post<UploadResponse>('/api/admin/products/upload-image', formData);
   }
 }

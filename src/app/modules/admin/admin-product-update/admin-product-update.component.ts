@@ -14,7 +14,11 @@ import { AdminProductUpdate } from './model/adminProductUpdate';
 export class AdminProductUpdateComponent implements OnInit {
 
   product!: AdminProductUpdate;
-  productForm!: FormGroup
+  productForm!: FormGroup;
+  requiredFileTypes = "image/jpeg, image/png"
+  imageForm!: FormGroup;
+  image: string | null = null;
+
   constructor(private router: ActivatedRoute,
     private adminProductUpdateService: AdminProductUpdateService,
     private formBuilder: FormBuilder,
@@ -29,6 +33,10 @@ export class AdminProductUpdateComponent implements OnInit {
       category: ['', [Validators.required, Validators.minLength(4)]],
       price: ['', [Validators.required, Validators.min(0)]],
       currency: ['PLN', [Validators.required]]
+    });
+
+    this.imageForm = this.formBuilder.group({
+      file: ['']
     })
   }
 
@@ -45,7 +53,8 @@ export class AdminProductUpdateComponent implements OnInit {
       description: this.productForm.get('description')?.value,
       category: this.productForm.get('category')?.value,
       price: this.productForm.get('price')?.value,
-      currency: this.productForm.get('currency')?.value
+      currency: this.productForm.get('currency')?.value,
+      image: this.image
     } as AdminProductUpdate).subscribe({
       next: product => {
         this.mapFormValues(product);
@@ -55,13 +64,30 @@ export class AdminProductUpdateComponent implements OnInit {
     });
   }
 
+  uploadFile() {
+      let formData = new FormData();
+      formData.append('file', this.imageForm.get('file')?.value);
+      this.adminProductUpdateService.uploadImage(formData)
+      .subscribe(result => this.image = result.fileName);
+  }
+
+  onFileChange(event: any) {
+
+    if (event.target.files.length > 0) {
+      this.imageForm.patchValue({
+        file: event.target.files[0]
+      });
+    }
+  }
   private mapFormValues(product: AdminProductUpdate): void {
-    return this.productForm.setValue({
+     this.productForm.setValue({
       name: product.name,
       description: product.description,
       category: product.category,
       price: product.price,
       currency: product.currency
+    
     });
+    this.image = product.image;
   }
 }
