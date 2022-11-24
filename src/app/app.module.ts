@@ -7,12 +7,14 @@ import { FullpageModule } from './layouts/fullpage/fullpage.module';
 import { FullpageAdminModule } from './layouts/fullpageadmin/fullpageadmin.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HttpClientModule } from '@angular/common/http';
+import { ProductDetailsComponent } from './modules/product-details/product-details.component';
 
 
 
 @NgModule({
   declarations: [
     AppComponent
+    
           ],
   imports: [
     HttpClientModule,

@@ -19,6 +19,19 @@ import { FormGroup } from "@angular/forms";
     </mat-form-field>
 
     <mat-form-field appearance="fill">
+        <mat-label>przyjazny url</mat-label>
+        <input matInput placeholder="Podaj url" formControlName="slug">
+        <div *ngIf="slug?.invalid && (slug?.dirty || slug?.touched)">
+            <div *ngIf="slug?.errors?.['required']">
+                Nazwa jest wymagana
+            </div>
+            <div *ngIf="slug?.errors?.['minlength']">
+                Minimalna długość to 4 znaki
+            </div>
+        </div>
+    </mat-form-field>
+
+    <mat-form-field appearance="fill">
         <mat-label>Opis</mat-label>
         <textarea matInput rows="20" placeholder="Podaj opis produktu" formControlName="description"></textarea>
         <div *ngIf="description?.invalid && (description?.dirty || description?.touched)">
@@ -30,6 +43,13 @@ import { FormGroup } from "@angular/forms";
             </div>
         </div>
     </mat-form-field>
+
+    <mat-form-field appearance="fill">
+        <mat-label>Pełny opis</mat-label>
+        <textarea matInput rows="40" placeholder="Podaj pełny
+        opis produktu" formControlName="fullDescription"></textarea>
+    </mat-form-field>
+
 
     <mat-form-field appearance="fill">
         <mat-label>Kategoria</mat-label>
@@ -89,5 +109,13 @@ export class AdminProductFormComponent implements OnInit {
 
     get price() {
         return this.parentForm.get("price");
+    }
+
+    get slug() {
+        return this.parentForm.get("slug");
+    }
+
+    get fullDescription() {
+        return this.parentForm.get("fullDescription");
     }
 }
