@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { AdminCategoryNameDto } from './adminCategoryNameDto';
+import { AdminCategoryNameDto } from '../common/dto/adminCategoryNameDto';
 import { Observable } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
 

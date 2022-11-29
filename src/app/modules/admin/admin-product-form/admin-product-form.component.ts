@@ -1,6 +1,6 @@
 import { Component, Input, OnInit } from "@angular/core";
 import { FormGroup } from "@angular/forms";
-import { AdminCategoryNameDto } from "./adminCategoryNameDto";
+import { AdminCategoryNameDto } from "../common/dto/adminCategoryNameDto";
 import { FormCategoryService } from "./form-category.service";
 
 @Component({
@@ -94,8 +94,8 @@ import { FormCategoryService } from "./form-category.service";
 export class AdminProductFormComponent implements OnInit {
 
     @Input() parentForm!: FormGroup;
-    
-    constructor(private formCategoryService: FormCategoryService){}
+
+    constructor(private formCategoryService: FormCategoryService) { }
 
     categories: Array<AdminCategoryNameDto> = [];
     ngOnInit(): void {
@@ -104,7 +104,7 @@ export class AdminProductFormComponent implements OnInit {
 
     getCategories() {
         this.formCategoryService.getCategories()
-        .subscribe(categories => this.categories = categories);
+            .subscribe(categories => this.categories = categories);
     }
 
     get name() {
@@ -131,5 +131,5 @@ export class AdminProductFormComponent implements OnInit {
         return this.parentForm.get("fullDescription");
     }
 
-    
+
 }

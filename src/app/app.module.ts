@@ -8,12 +8,16 @@ import { FullpageAdminModule } from './layouts/fullpageadmin/fullpageadmin.modul
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HttpClientModule } from '@angular/common/http';
 import { ProductDetailsComponent } from './modules/product-details/product-details.component';
+import { AdminCategoryComponent } from './modules/admin/admin-category/admin-category.component';
+import { AdminCategoryAddComponent } from './modules/admin/admin-category/admin-category-add/admin-category-add.component';
+import { AdminCategoryUpdateComponent } from './modules/admin/admin-category/admin-category-update/admin-category-update.component';
 
 
 
 @NgModule({
   declarations: [
     AppComponent
+   
     
           ],
   imports: [
