@@ -8,6 +8,7 @@ import { SharedModule } from 'src/app/shared/shared.module';
 import { ProductComponent } from 'src/app/modules/product/product.component';
 import { ProductDetailsComponent } from 'src/app/modules/product-details/product-details.component';
 import { CategoryComponent } from 'src/app/modules/category/category.component';
+import { ReactiveFormsModule } from '@angular/forms';
 
 
 @NgModule({
@@ -22,7 +23,8 @@ import { CategoryComponent } from 'src/app/modules/category/category.component';
     CommonModule,
     RouterModule,
     FlexLayoutModule,
-    SharedModule
+    SharedModule,
+    ReactiveFormsModule
   ]
 })
 export class DefaultModule { }
