@@ -1,6 +1,6 @@
-import { Component, OnInit,ViewChild } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { MatTable } from '@angular/material/table';
-import { AdminConfirmDialogService } from '../admin-confirm-dialog/admin-confirm-dialog.service';
+import { AdminConfirmDialogService } from '../common/service/admin-confirm-dialog.service';
 import { AdminCategoryNameDto } from '../common/dto/adminCategoryNameDto';
 import { AdminCategoryService } from './admin-category.service';
 
@@ -12,7 +12,7 @@ import { AdminCategoryService } from './admin-category.service';
 export class AdminCategoryComponent implements OnInit {
 
   displayedColumns: string[] = ["id", "name", "actions"];
-  data :Array<AdminCategoryNameDto>  = [];
+  data: Array<AdminCategoryNameDto> = [];
 
   @ViewChild(MatTable) table!: MatTable<any>;
 
@@ -22,10 +22,10 @@ export class AdminCategoryComponent implements OnInit {
   ngOnInit(): void {
     this.getCategories();
   }
-  
+
   getCategories() {
     this.adminCategoryService.getCategories()
-    .subscribe(categeries => this.data = categeries);
+      .subscribe(categeries => this.data = categeries);
   }
 
   confirmDelete(element: AdminCategoryNameDto) {

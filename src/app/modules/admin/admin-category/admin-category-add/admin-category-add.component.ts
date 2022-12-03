@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { Router } from '@angular/router';
-import { AdminMessageService } from '../../admin-message.service';
+import { AdminMessageService } from '../../common/service/admin-message.service';
 import { AdminCategoryService } from '../admin-category.service';
 
 @Component({
@@ -28,15 +28,16 @@ export class AdminCategoryAddComponent implements OnInit {
   }
 
   submit() {
-      this.adminCategoryService.createCategory(this.categoryForm.value)
+    this.adminCategoryService.createCategory(this.categoryForm.value)
       .subscribe({
         next: category => {
           this.router.navigate(["/admin/categories"])
-          .then(() => this.snackBar.open('Kategoria została dodana', '', {duration: 3000} ))
+            .then(() => this.snackBar.open('Kategoria została dodana', '', { duration: 3000 }))
         },
         error: err => {
-            this.adminMessageService.addSpringErrors(err.error);
-        }      })
+          this.adminMessageService.addSpringErrors(err.error);
+        }
+      })
   }
 
 }

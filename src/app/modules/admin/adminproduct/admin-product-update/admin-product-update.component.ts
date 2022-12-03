@@ -2,10 +2,10 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { ActivatedRoute } from '@angular/router';
-import { AdminMessageService } from '../admin-message.service';
+import { AdminMessageService } from '../../common/service/admin-message.service';
 import { AdminProductImageService } from '../admin-product-image.service';
 import { AdminProductUpdateService } from './admin-product-update.service';
-import { AdminProductUpdate } from './model/adminProductUpdate';
+import { AdminProductUpdate } from '../../adminproduct/model/adminProductUpdate';
 
 @Component({
   selector: 'app-admin-product-update',
@@ -25,7 +25,8 @@ export class AdminProductUpdateComponent implements OnInit {
     private adminProductUpdateService: AdminProductUpdateService,
     private formBuilder: FormBuilder,
     private snackBar: MatSnackBar,
-    private adminMessageService: AdminMessageService) { }
+    private adminMessageService: AdminMessageService,
+    private adminProductImageService: AdminProductImageService) { }
 
   ngOnInit(): void {
     this.getProduct();
@@ -72,9 +73,9 @@ export class AdminProductUpdateComponent implements OnInit {
   }
 
   uploadFile() {
-      let formData = new FormData();
-      formData.append('file', this.imageForm.get('file')?.value);
-      this.adminProductUpdateService.uploadImage(formData)
+    let formData = new FormData();
+    formData.append('file', this.imageForm.get('file')?.value);
+    this.adminProductImageService.uploadImage(formData)
       .subscribe(result => this.image = result.fileName);
   }
 
@@ -87,7 +88,7 @@ export class AdminProductUpdateComponent implements OnInit {
     }
   }
   private mapFormValues(product: AdminProductUpdate): void {
-     this.productForm.setValue({
+    this.productForm.setValue({
       name: product.name,
       description: product.description,
       fullDescription: product.fullDescription,
@@ -95,7 +96,7 @@ export class AdminProductUpdateComponent implements OnInit {
       price: product.price,
       currency: product.currency,
       slug: product.slug
-    
+
     });
     this.image = product.image;
   }

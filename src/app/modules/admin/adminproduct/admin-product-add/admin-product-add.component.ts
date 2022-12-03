@@ -2,10 +2,9 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { Router } from '@angular/router';
-import { AdminMessageService } from '../admin-message.service';
+import { AdminMessageService } from '../../common/service/admin-message.service';
 import { AdminProductImageService } from '../admin-product-image.service';
-import { AdminProductUpdateService } from '../admin-product-update/admin-product-update.service';
-import { AdminProductUpdate } from '../admin-product-update/model/adminProductUpdate';
+import { AdminProductUpdate } from '../model/adminProductUpdate';
 import { AdminProductAddService } from './admin-product-add.service';
 
 @Component({
@@ -45,15 +44,15 @@ export class AdminProductAddComponent implements OnInit {
 
   submit() {
     this.service.saveNewProduct({
-    name: this.productForm.get('name')?.value,
-    description: this.productForm.get('description')?.value,
-    fullDescription: this.productForm.get('fullDescription')?.value,
-    categoryId: this.productForm.get('categoryId')?.value,
-    price: this.productForm.get('price')?.value,
-    currency: this.productForm.get('currency')?.value,
-    slug: this.productForm.get('slug')?.value,
-    image: this.image
-  } as AdminProductUpdate)
+      name: this.productForm.get('name')?.value,
+      description: this.productForm.get('description')?.value,
+      fullDescription: this.productForm.get('fullDescription')?.value,
+      categoryId: this.productForm.get('categoryId')?.value,
+      price: this.productForm.get('price')?.value,
+      currency: this.productForm.get('currency')?.value,
+      slug: this.productForm.get('slug')?.value,
+      image: this.image
+    } as AdminProductUpdate)
       .subscribe({
         next: product => {
           this.router.navigate(['/admin/products/update', product.id])
@@ -67,15 +66,15 @@ export class AdminProductAddComponent implements OnInit {
     let formData = new FormData();
     formData.append('file', this.imageForm.get('file')?.value);
     this.adminProductImage.uploadImage(formData)
-    .subscribe(result => this.image = result.fileName);
-}
-
-onFileChange(event: any) {
-
-  if (event.target.files.length > 0) {
-    this.imageForm.patchValue({
-      file: event.target.files[0]
-    });
+      .subscribe(result => this.image = result.fileName);
   }
-}
+
+  onFileChange(event: any) {
+
+    if (event.target.files.length > 0) {
+      this.imageForm.patchValue({
+        file: event.target.files[0]
+      });
+    }
+  }
 }
