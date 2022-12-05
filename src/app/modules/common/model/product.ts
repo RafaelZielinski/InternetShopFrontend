@@ -1,5 +1,5 @@
 export interface Product{
-
+    id: number,
     name: string,
     category: string,
     description: string,
@@ -8,6 +8,7 @@ export interface Product{
     currency: string,
     image: string,
     slug: String
+    
   //   category: "Kategoria 1",
   //   description: "Opis produktu 1",
   //   price: 11.99,
