@@ -28,10 +28,14 @@
                 </div>
             </div>
         </div>
-        <div class="card-row" fxLayoutAlign="end start">
+        <div class="card-row" fxLayoutAlign="end start" fxLayoutGap="30">
+            <div fxLayoutAlign="">
+                <button mat-flat-button color="warn" (click)="back()">Powrót do
+                zakupów</button>
+                </div>
             <button mat-flat-button color="warn"(click)="submit()" >Zaktualizuj koszyk</button>
         </div>
-        <div fxLayoutAlign="end start">
+        <div>
             <div class="summary"> Wartość: </div>
             <div class="summary"> <b>{{summary!.summary!.grossValue}}</b></div>
         </div>
