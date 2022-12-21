@@ -9,11 +9,9 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HttpClientModule } from '@angular/common/http';
 import { CookieService } from 'ngx-cookie-service';
 
-
 @NgModule({
   declarations: [
     AppComponent
-    
           ],
   imports: [
     HttpClientModule,

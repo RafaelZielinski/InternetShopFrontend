@@ -4,7 +4,6 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { CookieService } from 'ngx-cookie-service';
 import { CartIconService } from '../common/service/cart-icon.service';
 import { CartService } from './cart.service';
-
 import { Location } from '@angular/common';
 import { CartSummary } from '../common/model/cart/cartSummary';
 import { CartSummaryItem } from '../common/model/cart/cartSummaryItem';
@@ -25,10 +24,10 @@ export class CartComponent implements OnInit {
     private router: Router,
     private formBuilder: FormBuilder,
     private cartIconService: CartIconService,
-    private location: Location) { }
+    private location: Location
+    ) { }
 
   ngOnInit(): void {
-    
     let id = Number(this.route.snapshot.queryParams['productId']);
     if (id > 0) {
       this.isProductAdded = true;
@@ -38,11 +37,9 @@ export class CartComponent implements OnInit {
       this.getCart();
     }
 
-
     this.formGroup = this.formBuilder.group({
       items: this.formBuilder.array([])
     });
-
 
   }
 
@@ -103,7 +100,6 @@ export class CartComponent implements OnInit {
       productId: item.product.id,
       quantity: item.quantity
     }))
-
   }
 
   deleteItem(itemId: number) {

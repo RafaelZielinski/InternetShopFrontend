@@ -3,12 +3,7 @@
         <mat-icon color="accent" class="logoicon">store</mat-icon>
         <span class="logo">Shop Panel</span>
         </div>
-        >
-    <div fxLayoutGap="30" >
-        <button routerLink="">Strona główna</button>
-        <button routerLink="">Produkty</button>
-        <button routerLink="">Zaloguj</button>
-    </div>
+        
         <div>
         <mat-icon  fxLayoutAlign="end center" color="accent" class="shoppingBasket">shopping_basket</mat-icon>
     </div>
@@ -18,6 +13,7 @@
         <div fxFlex class="sidebar">
             <mat-selection-list [multiple]="false">
                 <mat-list-option><a routerLink="/admin"> Dashboard</a></mat-list-option>
+                <mat-list-option><a routerLink="/admin/orders"> Zamówienia</a></mat-list-option>
                 <mat-list-option><a routerLink="/admin/products"> Produkty</a></mat-list-option>
                 <mat-list-option><a routerLink="/admin"> Link</a></mat-list-option>
                 <mat-list-option><a routerLink="/admin/categories"> Kategorie</a></mat-list-option>
