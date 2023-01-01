@@ -8,11 +8,14 @@ import { FullpageAdminModule } from './layouts/fullpageadmin/fullpageadmin.modul
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HttpClientModule } from '@angular/common/http';
 import { CookieService } from 'ngx-cookie-service';
+import { FullpageAdminEmptyModule } from './layouts/fullpageadminempty/fullpageadminempty.module';
+
 
 
 @NgModule({
   declarations: [
     AppComponent
+  
  
     
           ],
@@ -23,6 +26,7 @@ import { CookieService } from 'ngx-cookie-service';
     DefaultModule,
     FullpageModule,
     FullpageAdminModule,
+    FullpageAdminEmptyModule,
     BrowserAnimationsModule
   ],
   providers: [CookieService],

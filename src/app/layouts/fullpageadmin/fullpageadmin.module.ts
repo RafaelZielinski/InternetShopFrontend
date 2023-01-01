@@ -24,6 +24,7 @@ import { AdminOrderStatsComponent } from 'src/app/modules/admin/admin-order/admi
 
 
 
+
 @NgModule({
   declarations: [
     FullpageAdminComponent,
@@ -43,6 +44,7 @@ import { AdminOrderStatsComponent } from 'src/app/modules/admin/admin-order/admi
     AdminOrderUpdateComponent,
     AdminOrderExportComponent,
     AdminOrderStatsComponent
+   
   ],
   imports: [
     CommonModule,

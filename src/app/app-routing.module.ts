@@ -22,6 +22,8 @@ import { AdminOrderComponent } from './modules/admin/admin-order/admin-order.com
 import { AdminOrderUpdateComponent } from './modules/admin/admin-order/admin-order-update/admin-order-update.component';
 import { AdminOrderExportComponent } from './modules/admin/admin-order/admin-order-export/admin-order-export.component';
 import { AdminOrderStatsComponent } from './modules/admin/admin-order/admin-order-stats/admin-order-stats.component';
+import { FullpageAdminEmptyComponent } from './layouts/fullpageadminempty/fullpageadminempty.component';
+import { AdminLoginComponent } from './modules/admin/admin-login/admin-login.component';
 
 const routes: Routes = [
   {
@@ -38,6 +40,12 @@ const routes: Routes = [
   {
     path: '', component: FullpageComponent, children: [
       { path: 'login', component: LoginComponent }
+
+    ]
+  },
+  {
+    path: '', component: FullpageAdminEmptyComponent, children: [
+      { path: 'admin/login', component: AdminLoginComponent }
 
     ]
   },
