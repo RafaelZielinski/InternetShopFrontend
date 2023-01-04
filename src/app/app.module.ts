@@ -14,9 +14,11 @@ import { AdminAuthorizedGuard } from './modules/common/guard/adminAuthorizeGuard
 
 
 
+
 @NgModule({
   declarations: [
     AppComponent
+   
           ],
   imports: [
     HttpClientModule,
