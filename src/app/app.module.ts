@@ -9,7 +9,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { CookieService } from 'ngx-cookie-service';
 import { FullpageAdminEmptyModule } from './layouts/fullpageadminempty/fullpageadminempty.module';
-import { JwtInterceptor } from './modules/admin/common/interceptor/jwt.interceptor';
+import { JwtInterceptor } from './modules/common/interceptor/jwt.interceptor';
 import { AdminAuthorizedGuard } from './modules/common/guard/adminAuthorizeGuard';
 
 

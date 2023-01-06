@@ -1,7 +1,9 @@
 .orderDorm{
     width: 400px;
 }
-
+.orderForm{
+    width: 50%;
+}
 .errorMessage{
     color: red;
 }
@@ -10,6 +12,7 @@
     font-size: 22px;
     width: 220px;
 }
+
 
 .cart-hcol-1, 
 .cart-hcol-2,
@@ -84,4 +87,8 @@
 
 .paymentNote{
     font-weight: 700;
+}
+
+.loginInfo{
+    font-size: 18px;
 }

@@ -43,7 +43,7 @@ export class LoginComponent implements OnInit {
     if(this.loginForm.valid) {
       this.loginService.login(this.loginForm.value)
         .subscribe({
-          next: response => {
+          next: (response) => {
             this.jwtService.setToken(response.token);
             this.router.navigate([this.REDIRECT_ROUTE]);
             this.loginError = false;
