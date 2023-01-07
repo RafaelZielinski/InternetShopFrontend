@@ -21,6 +21,7 @@ export class ProfileComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
+    
     if(!this.jwtService.isLoggedIn()) {
       this.router.navigate(["/login"]);
     }
@@ -33,6 +34,5 @@ export class ProfileComponent implements OnInit {
     .subscribe(orders => this.orders = orders);
   }
 
-  
 
 }

@@ -3,19 +3,20 @@ import { ActivatedRouteSnapshot, CanActivate, Router, RouterStateSnapshot, UrlTr
 import { Observable } from "rxjs";
 import { JwtService } from "../service/jwt.service";
 
+
 @Injectable()
-export class AdminAuthorizedGuard implements CanActivate {
+export class ProfileAuthorizedGuard implements CanActivate {
 
     constructor(private jwtService: JwtService,
         private router: Router) {
 
     }
     canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): boolean | UrlTree | Observable<boolean | UrlTree> | Promise<boolean | UrlTree> {
-        if(!this.jwtService.isLoggedIn() ||
-         !this.jwtService.getAdminAccess()) {
-            this.router.navigate(["/admin/login"]);
+        if (!this.jwtService.isLoggedIn() 
+           ) {
+            this.router.navigate(["/login"]);
         }
         return true;
     }
-    
+
 }

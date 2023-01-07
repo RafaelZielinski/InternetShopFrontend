@@ -24,8 +24,9 @@ import { AdminOrderExportComponent } from './modules/admin/admin-order/admin-ord
 import { AdminOrderStatsComponent } from './modules/admin/admin-order/admin-order-stats/admin-order-stats.component';
 import { FullpageAdminEmptyComponent } from './layouts/fullpageadminempty/fullpageadminempty.component';
 import { AdminLoginComponent } from './modules/admin/admin-login/admin-login.component';
-import { AdminAuthorizedGuard } from './modules/common/guard/adminAuthorizeGuard';
+import { AdminAuthorizedGuard } from './modules/admin/common/guard/adminAuthorizeGuard';
 import { ProfileComponent } from './modules/profile/profile.component';
+import { ProfileAuthorizedGuard } from './modules/common/guard/profileAuthorizeGuard';
 
 const routes: Routes = [
   {
@@ -34,9 +35,9 @@ const routes: Routes = [
       { path: 'products', component: ProductComponent },
       { path: 'products/:slug', component: ProductDetailsComponent },
       { path: 'categories/:slug', component: CategoryComponent },
-      { path: 'cart', component: CartComponent},
-      { path: 'order', component: OrderComponent},
-      { path: 'profile', component: ProfileComponent}
+      { path: 'cart', component: CartComponent },
+      { path: 'order', component: OrderComponent },
+      { path: 'profile', component: ProfileComponent, canActivate: [ProfileAuthorizedGuard] }
 
     ]
   },
@@ -55,17 +56,17 @@ const routes: Routes = [
   {
     path: '', component: FullpageAdminComponent, children: [
       { path: 'admin', component: AdminComponent, canActivate: [AdminAuthorizedGuard] },
-      { path: 'admin/products', component: AdminproductComponent , canActivate: [AdminAuthorizedGuard]},
+      { path: 'admin/products', component: AdminproductComponent, canActivate: [AdminAuthorizedGuard] },
       { path: 'admin/products/update/:id', component: AdminProductUpdateComponent, canActivate: [AdminAuthorizedGuard] },
-      { path: 'admin/products/add', component: AdminProductAddComponent , canActivate: [AdminAuthorizedGuard]},
-      { path: 'admin/categories', component: AdminCategoryComponent , canActivate: [AdminAuthorizedGuard] },
+      { path: 'admin/products/add', component: AdminProductAddComponent, canActivate: [AdminAuthorizedGuard] },
+      { path: 'admin/categories', component: AdminCategoryComponent, canActivate: [AdminAuthorizedGuard] },
       { path: 'admin/categories/add', component: AdminCategoryAddComponent, canActivate: [AdminAuthorizedGuard] },
-      { path: 'admin/categories/update/:id', component: AdminCategoryUpdateComponent , canActivate: [AdminAuthorizedGuard]},
+      { path: 'admin/categories/update/:id', component: AdminCategoryUpdateComponent, canActivate: [AdminAuthorizedGuard] },
       { path: 'admin/reviews', component: AdminReviewComponent, canActivate: [AdminAuthorizedGuard] },
-      { path: 'admin/orders', component: AdminOrderComponent , canActivate: [AdminAuthorizedGuard]},
-      { path: 'admin/orders/update/:id', component: AdminOrderUpdateComponent , canActivate: [AdminAuthorizedGuard]},
-      { path: 'admin/orders/export', component: AdminOrderExportComponent , canActivate: [AdminAuthorizedGuard]},
-      { path: 'admin/orders/stats', component: AdminOrderStatsComponent , canActivate: [AdminAuthorizedGuard]}
+      { path: 'admin/orders', component: AdminOrderComponent, canActivate: [AdminAuthorizedGuard] },
+      { path: 'admin/orders/update/:id', component: AdminOrderUpdateComponent, canActivate: [AdminAuthorizedGuard] },
+      { path: 'admin/orders/export', component: AdminOrderExportComponent, canActivate: [AdminAuthorizedGuard] },
+      { path: 'admin/orders/stats', component: AdminOrderStatsComponent, canActivate: [AdminAuthorizedGuard] }
     ]
   }
 ];

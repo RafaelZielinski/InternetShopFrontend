@@ -10,7 +10,8 @@ import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { CookieService } from 'ngx-cookie-service';
 import { FullpageAdminEmptyModule } from './layouts/fullpageadminempty/fullpageadminempty.module';
 import { JwtInterceptor } from './modules/common/interceptor/jwt.interceptor';
-import { AdminAuthorizedGuard } from './modules/common/guard/adminAuthorizeGuard';
+import { AdminAuthorizedGuard } from './modules/admin/common/guard/adminAuthorizeGuard';
+import { ProfileAuthorizedGuard } from './modules/common/guard/profileAuthorizeGuard';
 
 
 
@@ -18,8 +19,8 @@ import { AdminAuthorizedGuard } from './modules/common/guard/adminAuthorizeGuard
 @NgModule({
   declarations: [
     AppComponent
-   
-          ],
+
+  ],
   imports: [
     HttpClientModule,
     BrowserModule,
@@ -31,9 +32,10 @@ import { AdminAuthorizedGuard } from './modules/common/guard/adminAuthorizeGuard
     BrowserAnimationsModule
   ],
   providers: [CookieService,
-  {provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true},
-  AdminAuthorizedGuard
-],
+    { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true },
+    AdminAuthorizedGuard,
+    ProfileAuthorizedGuard
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

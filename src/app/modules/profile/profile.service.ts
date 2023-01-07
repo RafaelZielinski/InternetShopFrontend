@@ -11,6 +11,6 @@ export class ProfileService {
   constructor(private http: HttpClient) { }
 
   getOrders(): Observable<Array<OrderListDto>> {
-    return this.http.get<Array<OrderListDto>>("api/orders");
+    return this.http.get<Array<OrderListDto>>("/api/orders");
   }
 }
